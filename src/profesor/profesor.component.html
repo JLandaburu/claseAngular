@@ -69,3 +69,20 @@
         </ul>
     </li>
 </ul>
+<h2>
+    Switch-case
+</h2>
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{'color': color}">
+        Rojo
+    </li>
+    <li *ngSwitchCase="'blue'" [ngStyle]="{'color': color}">
+        Azul
+    </li>
+    <li *ngSwitchCase="'green'" [ngStyle]="{'color': color}">
+        Verde
+    </li>
+    <li *ngSwitchDefault style="color: black">
+        Negro
+    </li>
+</ul>

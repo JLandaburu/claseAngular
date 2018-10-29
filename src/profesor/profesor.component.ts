@@ -13,6 +13,7 @@ export class ProfesorComponent{
     public trabajos:Array<any> = ['Profesor', 'Webdev', 'Barrendero'];
     public profesor:Profesor;
     public profesorado:Array<Profesor>;
+    public color:string;
 
     constructor(){
         this.nombre = 'Xabi';
@@ -24,5 +25,6 @@ export class ProfesorComponent{
             new Profesor('Vanesa',34,'Matemáticas',true),
             new Profesor('Ramiro',28,'Lenguaje',false)
         ];
+        this.color = 'blue';
     }
 }
