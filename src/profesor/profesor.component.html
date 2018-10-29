@@ -1,0 +1,71 @@
+<h1>
+    Componente Profesor
+</h1>
+<p>
+    Nombre: {{nombre}}
+</p>
+<p>
+    Edad: {{edad}}
+</p>
+<p *ngIf="casado; else soltero">
+    Estado civil: Casado
+</p>
+<ng-template #soltero>
+    <p>
+        Estado civil: Soltero
+    </p>
+</ng-template>
+<p>
+    Trabajos:
+</p>
+<ul>
+    <li *ngFor="let trabajo of trabajos">
+        {{trabajo}}
+    </li>
+</ul>
+<h2>
+    Profesor único
+</h2>
+<ul>
+    <li>
+        {{profesor.nombre}}
+    </li>
+    <li>
+        {{profesor.edad}}
+    </li>
+    <li>
+        {{profesor.materia}}
+    </li>
+    <li *ngIf="profesor.contratado">
+        Contratado
+    </li>
+    <li *ngIf="!profesor.contratado">
+        No contratado
+    </li>
+</ul>
+<h2>
+    Listado de profesores
+</h2>
+<ul>
+    <li *ngFor="let profesor of profesorado; let x=index">
+        <strong>Profesor {{x+1}}</strong>
+        <ul>
+            <li>
+                {{profesor.nombre}}
+            </li>
+            <li>
+                {{profesor.edad}}
+            </li>
+            <li>
+                {{profesor.materia}}
+            </li>
+            <li *ngIf="profesor.contratado">
+                Contratado
+            </li>
+            <li *ngIf="!profesor.contratado">
+                No contratado
+            </li>
+            <br>
+        </ul>
+    </li>
+</ul>
