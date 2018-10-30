@@ -86,3 +86,22 @@
         Negro
     </li>
 </ul>
+
+<h2>
+    Evento click
+</h2>
+<button (click)="pulsarBoton()">
+    Cambiar de usuario
+</button>
+<div *ngIf="admin; else noAdmin">
+    <strong>
+        Eres el administrador
+    </strong>
+</div>
+<ng-template #noAdmin>
+    <div>
+        <strong>
+            No eres el administrador
+        </strong>
+    </div>       
+</ng-template>

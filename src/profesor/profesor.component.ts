@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Profesor } from './profesor';
 
 @Component({
@@ -14,6 +14,7 @@ export class ProfesorComponent{
     public profesor:Profesor;
     public profesorado:Array<Profesor>;
     public color:string;
+    public admin:boolean; //para el button
 
     constructor(){
         this.nombre = 'Xabi';
@@ -26,5 +27,15 @@ export class ProfesorComponent{
             new Profesor('Ramiro',28,'Lenguaje',false)
         ];
         this.color = 'blue';
+        this.admin = false;
+    }
+
+    ngOnInit(): void {
+        window.console.log(this.profesor);
+    }
+
+    pulsarBoton(): void {
+        console.log("Hemos pulsado el boton");
+        this.admin = !this.admin;
     }
 }

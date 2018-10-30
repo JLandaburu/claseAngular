@@ -1,0 +1,12 @@
+<h2>
+  Two way data binding
+</h2>
+<input type="text" [(ngModel)]="color_seleccionado">
+<pre [style.border]="color_seleccionado=='red' ? '2px solid red' : '2px solid black'">
+  {{color_seleccionado}}
+</pre>
+<p [ngStyle]="{'color': color_seleccionado}">
+  <strong>
+    Este texto se colorea segun el input
+  </strong>
+</p>
