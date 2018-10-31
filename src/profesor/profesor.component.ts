@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Profesor } from './profesor';
+import { PeticionesService } from '../app/services/peticiones.service';
 
 @Component({
     selector: 'app-profesor',
-    templateUrl: './profesor.component.html'
+    templateUrl: './profesor.component.html',
+    providers: [PeticionesService]
 })
 
 export class ProfesorComponent{
@@ -15,8 +17,11 @@ export class ProfesorComponent{
     public profesorado:Array<Profesor>;
     public color:string;
     public admin:boolean; //para el button
+    public api_posts; //posts que vienen de la api (no le indicamos el tipo que va a venir, no le indicamos tipo)
 
-    constructor(){
+    constructor(
+        private _peticionesService:PeticionesService
+    ){
         this.nombre = 'Xabi';
         this.edad = 32;
         this.casado = false;
@@ -31,7 +36,17 @@ export class ProfesorComponent{
     }
 
     ngOnInit(): void {
-        window.console.log(this.profesor);
+        this._peticionesService.getPosts().subscribe(
+            res => {
+                this.api_posts = res;
+                if(!this.api_posts)
+                    console.log("Respuesta vacía de la API"); //si no hay ningun valor que mostrar
+            },
+            error => {
+                console.log(<any>error); //si hay error
+            }
+        );
+        
     }
 
     pulsarBoton(): void {

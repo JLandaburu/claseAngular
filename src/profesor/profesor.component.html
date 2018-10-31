@@ -24,6 +24,17 @@
     </li>
 </ul>
 <h2>
+    Lista de posts
+</h2>
+<ul *ngIf="api_posts">
+    <li *ngFor="let post of api_posts">
+        {{post.id}} - {{post.title}}
+    </li>
+</ul>
+<span *ngIf="!api_posts">
+    Cargando listado...
+</span>
+<h2>
     Profesor único
 </h2>
 <ul>
